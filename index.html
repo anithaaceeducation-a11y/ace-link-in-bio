@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACE Tuition Center — Summer Camp 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #C0392B;
+    --red-light: #FAECEB;
+    --red-dark: #922B21;
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE1;
+    --text: #1A1A1A;
+    --text-muted: #6B6460;
+    --border: rgba(0,0,0,0.09);
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 48px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 420px;
+    padding: 0 20px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 40px 0 28px;
+  }
+
+  .logo-ring {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: white;
+    letter-spacing: -1px;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .header p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .badge-camp {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Divider */
+  .divider {
+    height: 0.5px;
+    background: var(--border);
+    margin: 0 0 24px;
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* WhatsApp CTA */
+  .wa-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px 20px;
+    border-radius: 14px;
+    transition: background 0.15s, transform 0.1s;
+    margin-bottom: 12px;
+  }
+
+  .wa-btn:hover { background: #1ebe5c; }
+  .wa-btn:active { transform: scale(0.98); }
+
+  .wa-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .call-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.15s;
+    margin-bottom: 28px;
+  }
+
+  .call-row:hover { background: var(--cream-dark); }
+
+  .call-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--red);
+    flex-shrink: 0;
+  }
+
+  /* Activities grid */
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .act-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+
+  .act-emoji {
+    font-size: 26px;
+    display: block;
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+
+  .act-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .act-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* Features strip */
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .feat-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 13px 14px;
+  }
+
+  .feat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .feat-text {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Info bar */
+  .info-bar {
+    background: var(--red);
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .info-item {}
+  .info-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .info-value {
+    font-size: 13px;
+    color: white;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* Address */
+  .address-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 32px;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.15s;
+  }
+
+  .address-card:hover { background: var(--cream-dark); }
+
+  .pin-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--red);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .addr-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .addr-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .page > * {
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .page > *:nth-child(1) { animation-delay: 0.05s; }
+  .page > *:nth-child(2) { animation-delay: 0.10s; }
+  .page > *:nth-child(3) { animation-delay: 0.15s; }
+  .page > *:nth-child(4) { animation-delay: 0.20s; }
+  .page > *:nth-child(5) { animation-delay: 0.25s; }
+  .page > *:nth-child(6) { animation-delay: 0.30s; }
+  .page > *:nth-child(7) { animation-delay: 0.35s; }
+  .page > *:nth-child(8) { animation-delay: 0.40s; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-ring">A</div>
+    <h1>ACE Tuition Center</h1>
+    <p>Thoppampatti, Coimbatore</p>
+    <span class="badge-camp">⚡ Summer Camp 2026</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WhatsApp CTA -->
+  <div class="section-label">Enroll now</div>
+
+  <a class="wa-btn" href="https://wa.me/918903980915?text=Hi!%20I%20want%20to%20enroll%20my%20child%20in%20the%20ACE%20Summer%20Camp%202026." target="_blank">
+    <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    WhatsApp to Enroll
+  </a>
+
+  <a class="call-row" href="tel:+918903980915">
+    <svg class="call-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+    </svg>
+    Call: 89039 80915
+  </a>
+
+  <!-- Activities -->
+  <div class="section-label">What your child will do</div>
+  <div class="activities-grid">
+    <div class="act-card">
+      <span class="act-emoji">🥋</span>
+      <div class="act-name">Taekwondo</div>
+      <div class="act-desc">Discipline & fitness</div>
+    </div>
+    <div class="act-card">
+      <span class="act-emoji">🧘</span>
+      <div class="act-name">Yoga</div>
+      <div class="act-desc">Focus & calm</div>
+    </div>
+    <div class="act-card">
+      <span class="act-emoji">🎨</span>
+      <div class="act-name">Art & Craft</div>
+      <div class="act-desc">Creative expression</div>
+    </div>
+    <div class="act-card">
+      <span class="act-emoji">🍳</span>
+      <div class="act-name">Fireless Cooking</div>
+      <div class="act-desc">Life skills</div>
+    </div>
+    <div class="act-card">
+      <span class="act-emoji">🚌</span>
+      <div class="act-name">Field Trip</div>
+      <div class="act-desc">Explore & discover</div>
+    </div>
+    <div class="act-card">
+      <span class="act-emoji">🎲</span>
+      <div class="act-name">Traditional Games</div>
+      <div class="act-desc">Cultural fun</div>
+    </div>
+  </div>
+
+  <!-- Academic features -->
+  <div class="section-label">Academics included</div>
+  <div class="features">
+    <div class="feat-row"><div class="feat-dot"></div><div class="feat-text">📐 Basic Maths — strengthen the core</div></div>
+    <div class="feat-row"><div class="feat-dot"></div><div class="feat-text">🗣️ Spoken English — communicate with confidence</div></div>
+    <div class="feat-row"><div class="feat-dot"></div><div class="feat-text">🔤 Phonics — reading & pronunciation</div></div>
+    <div class="feat-row"><div class="feat-dot"></div><div class="feat-text">✍️ Handwriting — neat, legible, practised</div></div>
+  </div>
+
+  <!-- Info bar -->
+  <div class="info-bar">
+    <div class="info-item">
+      <div class="info-label">Duration</div>
+      <div class="info-value">April – May 2026</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Grades</div>
+      <div class="info-value">1 – 9 · All boards</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Morning batch</div>
+      <div class="info-value">10 AM – 1 PM</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Evening batch</div>
+      <div class="info-value">4:30 – 7:30 PM</div>
+    </div>
+  </div>
+
+  <!-- Address -->
+  <a class="address-card" href="https://maps.google.com/?q=4/639,+Govt+School+Backside,+Thoppampatti,+Coimbatore" target="_blank">
+    <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </svg>
+    <div>
+      <div class="addr-title">ACE Tuition Center</div>
+      <div class="addr-sub">4/639, Govt School Backside,<br>Thoppampatti, Coimbatore</div>
+    </div>
+  </a>
+
+  <div class="footer">© 2026 ACE Tuition Center · Thoppampatti, Coimbatore</div>
+
+</div>
+</body>
+</html>
